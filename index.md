@@ -1,11 +1,7 @@
 ---
+
 title: "🚗 Projeto de Algoritmos - Parking lot com Grafos"
----
 
-# 🚘 Estacionamento com Grafos — Projeto de Algoritmos
-
-Este projeto foi desenvolvido como parte da disciplina **Projeto de Algoritmos (2025.1)**.  
-Nosso objetivo é 
 ---
 
 ## 👩‍💻 Integrantes
@@ -17,32 +13,52 @@ Nosso objetivo é
 
 ## 🎯 Objetivo
 
-
-
----
-
-## 🔧 Algoritmos utilizados
-
-
+Desenvolver um sistema de estacionamento que utiliza **algoritmos de grafos** para encontrar a **vaga disponível mais próxima** de uma **loja específica** escolhida pelo usuário. O sistema deve considerar tanto a **estrutura do estacionamento** (com conexões entre vagas) quanto a **ocupação atual das vagas**.
 
 ---
 
-## 📊 Estrutura de Dados
+## 🔧 Tecnologias e Estruturas Utilizadas
 
-
-
----
-
-## 🗺️ Exemplo de Funcionamento
-
-
+- **Linguagem**: C++
+- **Representação do grafo**: Lista de adjacência
+- **Tipo de grafo**: Direcionado
+- **Algoritmo de busca**: BFS (Breadth-First Search)
 
 ---
 
-## 📁 Organização do Repositório
+## 🧩 Modelagem do Grafo
 
-```bash
-📦 Grafos-1-Parking-lot
-├── src/                # Códigos fonte
-├── index.md            # Página inicial do GitHub Pages
-└── README.md           # Apresentação geral do repositório
+### 🟢 Nós (Vértices)
+Cada **nó** do grafo representa uma **vaga** do estacionamento.
+
+#### Atributos de um nó:
+- `id`: número da vaga
+- `loja_proxima`: nome da loja mais próxima (ex: "Americanas")
+- `ocupada`: booleano indicando se a vaga está ocupada (`true`) ou livre (`false`)
+
+### 🔗 Arestas
+As **arestas** representam os **caminhos** entre as vagas do estacionamento. Como nem todos os caminhos são necessariamente bidirecionais, o grafo será **direcionado**.
+
+### 🧱 Estrutura de dados utilizada
+Usaremos uma **lista de adjacência** para representar o grafo.
+
+---
+
+## 🏪 Lojas Disponíveis
+
+As lojas próximas às vagas são:
+
+- Americanas
+- Magazine Luiza (Magalu)
+- C&A
+- Outros exemplos
+
+---
+
+## 🧠 Funcionamento do Algoritmo
+
+1. O usuário escolhe uma loja de destino.
+2. O algoritmo percorre o grafo com **BFS**, partindo das vagas mais próximas à loja.
+3. A busca ignora vagas ocupadas.
+4. O sistema retorna a **vaga disponível mais próxima** da loja escolhida.
+
