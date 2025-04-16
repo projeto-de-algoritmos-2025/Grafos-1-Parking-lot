@@ -1,7 +1,10 @@
 #include <iostream>
 #include "estacionamento.hpp"
-#include "grafo.hpp"
+
 using namespace std;
+
+extern void inicializarGrafo();
+extern int encontrarVagaProximaComBFS(int lojaIndex);
 
 void executarMenu() {
     int opcao;

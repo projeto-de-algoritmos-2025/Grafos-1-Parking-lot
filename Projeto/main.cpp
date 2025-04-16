@@ -1,7 +1,11 @@
 #include "estacionamento.hpp"
-#include "grafo.hpp"
 
-void executarMenu(); // declaração direta pois você não quer um menu.h
+// Declarações diretas das funções do grafo
+void inicializarGrafo();
+int encontrarVagaProximaComBFS(int lojaIndex);
+
+// Declaração direta da função do menu
+void executarMenu();
 
 int main() {
     inicializarLojas();

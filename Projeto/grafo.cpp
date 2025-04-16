@@ -1,9 +1,13 @@
-#include "grafo.hpp"
 #include "estacionamento.hpp"
+#include <vector>
 #include <queue>
 
+using namespace std;
+
+// Lista de adjacência global
 vector<vector<int>> adjacencia(18);
 
+// Inicializa o grafo com conexões simples entre vagas vizinhas
 void inicializarGrafo() {
     for (int i = 0; i < 18; ++i) {
         if (i > 0)
@@ -13,6 +17,7 @@ void inicializarGrafo() {
     }
 }
 
+// Busca uma vaga livre mais próxima usando BFS
 int buscarVagaPorBFS(int vagaInicial) {
     vector<bool> visitado(18, false);
     queue<int> fila;
@@ -38,7 +43,8 @@ int buscarVagaPorBFS(int vagaInicial) {
     return -1;
 }
 
+// Função chamada pelo menu para encontrar a vaga mais próxima
 int encontrarVagaProximaComBFS(int lojaIndex) {
-    int vagaInicial = lojaIndex * 3 + 1;
+    int vagaInicial = lojaIndex * 3; // Começa na primeira vaga associada à loja
     return buscarVagaPorBFS(vagaInicial);
 }
