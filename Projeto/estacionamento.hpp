@@ -8,7 +8,7 @@ using namespace std;
 struct Vaga {
     int id;
     bool ocupada;
-    int lojaMaisProxima;
+    string nomeLoja;  
 };
 
 extern vector<string> lojas;

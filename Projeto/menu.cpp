@@ -4,11 +4,10 @@
 using namespace std;
 
 extern void inicializarGrafo();
-extern int encontrarVagaProximaComBFS(int lojaIndex);
+extern pair<int, vector<int>> encontrarVagaProximaComBFS(const string& nomeLoja);
 
 void executarMenu() {
     int opcao;
-
     do {
         mostrarMenu();
         cin >> opcao;
@@ -19,36 +18,44 @@ void executarMenu() {
                 int escolha;
                 cin >> escolha;
                 if (escolha >= 1 && escolha <= 6) {
-                    int vaga = encontrarVagaProximaComBFS(escolha - 1);
+                    string nomeLoja = lojas[escolha - 1];
+                    pair<int, vector<int>> resultado = encontrarVagaProximaComBFS(nomeLoja);
+                    int vaga = resultado.first;
                     if (vaga != -1) {
                         vagas[vaga].ocupada = true;
-                        cout << "Estacione na vaga " << vagas[vaga].id
-                             << " (próxima à loja " << lojas[escolha - 1] << ")\n";
+                        cout << "\nEstacione na vaga " << vagas[vaga].id
+                             << " (próxima à loja " << nomeLoja << ")\n";
+                    
+                        // Exibe o caminho percorrido até a vaga
+                        cout << "\nCaminho até a vaga: ";
+                        for (int i : resultado.second) {
+                            cout << (i + 1) << " "; // +1 para mostrar as IDs humanas (1 a 18)
+                        }
+                        cout << endl;
                     } else {
-                        cout << "Não há vagas disponíveis próximas à loja " << lojas[escolha - 1] << endl;
+                        cout << "\nNão há vagas disponíveis próximas à loja " << nomeLoja << endl;
                     }
                 } else {
-                    cout << "Loja inválida.\n";
+                    cout << "\nLoja inválida.\n";
                 }
                 break;
             }
             case 2: {
                 cout << "\nMAPA DO ESTACIONAMENTO\n";
+                cout << "-----------------------\n";
                 for (const Vaga& v : vagas) {
                     cout << "Vaga " << v.id << " - "
-                         << (v.ocupada ? "Ocupada" : "Livre")
-                         << " (Loja: " << lojas[v.lojaMaisProxima] << ")\n";
+                         << (v.ocupada ? "OCUPADA" : "LIVRE ")
+                         << " (Loja: " << v.nomeLoja << ")\n";
                 }
                 break;
             }
             case 3:
-                cout << "Saindo...\n";
+                cout << "\nSaindo do sistema...\n";
                 break;
             default:
-                cout << "Opção inválida. Tente novamente.\n";
+                cout << "\nOpção inválida. Tente novamente.\n";
         }
-
-        cout << endl;
 
     } while (opcao != 3);
 }
