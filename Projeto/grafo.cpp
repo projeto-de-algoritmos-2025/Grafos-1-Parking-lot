@@ -1,50 +1,94 @@
 #include "estacionamento.hpp"
 #include <vector>
 #include <queue>
+#include <unordered_map>
 
 using namespace std;
 
-// Lista de adjacência global
 vector<vector<int>> adjacencia(18);
 
-// Inicializa o grafo com conexões simples entre vagas vizinhas
 void inicializarGrafo() {
-    for (int i = 0; i < 18; ++i) {
-        if (i > 0)
-            adjacencia[i].push_back(i - 1);
-        if (i < 17)
-            adjacencia[i].push_back(i + 1);
-    }
+    // Configuração do fluxo direcional do estacionamento
+    adjacencia[0].push_back(1);   // Vaga 1 → Vaga 2
+    adjacencia[1].push_back(2);   // Vaga 2 → Vaga 3
+    adjacencia[2].push_back(3);   // Vaga 3 → Vaga 4
+    adjacencia[3].push_back(4);   // Vaga 4 → Vaga 5
+    adjacencia[3].push_back(6);   // Vaga 4 → Vaga 7
+    adjacencia[4].push_back(5);   // Vaga 5 → Vaga 6
+    adjacencia[4].push_back(7);   // Vaga 5 → Vaga 8
+    adjacencia[5].push_back(6);   // Vaga 6 → Vaga 7
+    adjacencia[5].push_back(8);   // Vaga 6 → Vaga 9
+    adjacencia[6].push_back(7);   // Vaga 7 → Vaga 8
+    adjacencia[7].push_back(8);   // Vaga 8 → Vaga 9
+
+    adjacencia[8].push_back(11);  // Vaga 9 → Vaga 12
+    adjacencia[11].push_back(10); // Vaga 12 → Vaga 11
+    adjacencia[11].push_back(17); // Vaga 12 → Vaga 18
+    adjacencia[10].push_back(9);  // Vaga 11 → Vaga 10
+    adjacencia[10].push_back(16); // Vaga 11 → Vaga 17
+    adjacencia[9].push_back(15);  // Vaga 10 → Vaga 16
+    adjacencia[17].push_back(16); // Vaga 18 → Vaga 17
+    adjacencia[16].push_back(15); // Vaga 17 → Vaga 16
+    adjacencia[15].push_back(14); // Vaga 16 → Vaga 15
+    adjacencia[14].push_back(13); // Vaga 15 → Vaga 14
+    adjacencia[13].push_back(12); // Vaga 14 → Vaga 12
+
+    
+    
 }
 
-// Busca uma vaga livre mais próxima usando BFS
-int buscarVagaPorBFS(int vagaInicial) {
+pair<int, vector<int>> buscarVagaPorBFS(const vector<Vaga>& vagas, const string& nomeLojaDesejada) {
     vector<bool> visitado(18, false);
     queue<int> fila;
-    fila.push(vagaInicial);
-    visitado[vagaInicial] = true;
+    unordered_map<int, int> predecessor;
+    vector<int> caminho;
+
+    fila.push(0); // Começa na Vaga 1
+    visitado[0] = true;
+    predecessor[0] = -1;
+
+    int count_vagas_loja = 0;
+    int vagaEncontrada = -1;
 
     while (!fila.empty()) {
-        int atual = fila.front();
+        int vagaAtual = fila.front();
         fila.pop();
 
-        if (!vagas[atual].ocupada) {
-            return atual;
+        if (!vagas[vagaAtual].ocupada) {
+            if (vagas[vagaAtual].nomeLoja == nomeLojaDesejada) {
+                vagaEncontrada = vagaAtual;
+                break;
+            } else if (count_vagas_loja >= 2) {
+                vagaEncontrada = vagaAtual;
+                break;
+            }
+        } else {
+            if (vagas[vagaAtual].nomeLoja == nomeLojaDesejada) {
+                count_vagas_loja++;
+            }
         }
 
-        for (int vizinho : adjacencia[atual]) {
+        for (int vizinho : adjacencia[vagaAtual]) {
             if (!visitado[vizinho]) {
                 fila.push(vizinho);
                 visitado[vizinho] = true;
+                predecessor[vizinho] = vagaAtual;
             }
         }
     }
 
-    return -1;
+    if (vagaEncontrada != -1) {
+        int v = vagaEncontrada;
+        while (v != -1) {
+            caminho.insert(caminho.begin(), v); 
+            v = predecessor[v];
+        }
+    }
+
+    return {vagaEncontrada, caminho};
 }
 
-// Função chamada pelo menu para encontrar a vaga mais próxima
-int encontrarVagaProximaComBFS(int lojaIndex) {
-    int vagaInicial = lojaIndex * 3; // Começa na primeira vaga associada à loja
-    return buscarVagaPorBFS(vagaInicial);
+
+pair<int, vector<int>> encontrarVagaProximaComBFS(const string& nomeLoja) {
+    return buscarVagaPorBFS(vagas, nomeLoja);
 }
