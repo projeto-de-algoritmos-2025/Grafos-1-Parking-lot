@@ -21,9 +21,10 @@ void mostrarMenu() {
     cout << "\n===== SISTEMA DE ESTACIONAMENTO =====\n";
     cout << "1. Escolher loja e estacionar\n";
     cout << "2. Ver mapa de estacionamento\n";
-    cout << "3. Sair\n";
+    cout << "3. Ver desenho do estacionamento vazio\n";
+    cout << "4. Sair\n";
     cout << "======================================\n";
-    cout << "ESCOLHA UMA OPÇÃO (1-3): ";
+    cout << "ESCOLHA UMA OPÇÃO (1-4): ";
 }
 
 void mostrarLojas() {

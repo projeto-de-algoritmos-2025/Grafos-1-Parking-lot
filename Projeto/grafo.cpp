@@ -2,6 +2,10 @@
 #include <vector>
 #include <queue>
 #include <unordered_map>
+#include <fstream>   
+#include <cstdlib>   
+#include <iostream>  
+#include <sstream> 
 
 using namespace std;
 
@@ -91,4 +95,41 @@ pair<int, vector<int>> buscarVagaPorBFS(const vector<Vaga>& vagas, const string&
 
 pair<int, vector<int>> encontrarVagaProximaComBFS(const string& nomeLoja) {
     return buscarVagaPorBFS(vagas, nomeLoja);
+}
+
+void gerarGrafoCaminho(const vector<int>& caminho, int vaga) {
+    stringstream nomeArquivo;
+    nomeArquivo << "caminho_para_vaga_" << vaga << ".dot"; 
+    string arquivoDot = nomeArquivo.str();
+
+    ofstream dotFile(arquivoDot);
+    dotFile << "digraph G {\n";
+    dotFile << "  rankdir=LR;\n"; 
+    dotFile << "  node [shape=circle, style=filled, fillcolor=lightblue];\n";
+
+    for (size_t i = 0; i < caminho.size(); ++i) {
+        dotFile << "  " << caminho[i] + 1 << ";\n";
+        if (i < caminho.size() - 1) {
+            dotFile << "  " << caminho[i] + 1 << " -> " << caminho[i + 1] + 1 << ";\n";
+        }
+    }
+
+    dotFile << "}\n";
+    dotFile.close();
+
+    stringstream nomeImagem;
+    nomeImagem << "caminho_para_vaga_" << vaga << ".png";  
+    string arquivoPng = nomeImagem.str();
+
+    string comando = "dot -Tpng " + arquivoDot + " -o " + arquivoPng;
+    system(comando.c_str()); 
+
+// Abre a imagem (Linux: xdg-open, Windows: start, Mac: open)
+#ifdef _WIN32
+    system(("start " + arquivoPng).c_str());
+#elif __APPLE__
+    system(("open " + arquivoPng).c_str());
+#else
+    system(("feh " + arquivoPng).c_str());
+#endif
 }

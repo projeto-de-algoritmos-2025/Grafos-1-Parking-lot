@@ -18,5 +18,6 @@ void inicializarLojas();
 void inicializarVagas();
 void mostrarMenu();
 void mostrarLojas();
+void gerarGrafoCaminho(const vector<int>& caminho, int vaga);
 
 #endif
