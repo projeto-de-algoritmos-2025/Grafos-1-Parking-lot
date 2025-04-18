@@ -13,7 +13,43 @@
 O sistema de estacionamento simula a alocação de vagas de estacionamento para clientes em um shopping, com 18 vagas e 6 lojas, utilizando algoritmos de grafos. O objetivo é encontrar a vaga mais próxima de uma loja específica usando a busca em largura (BFS).
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+<p align="center">
+  <img src="Documentos/screenshots/Print%201.png" alt="Print 1 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%202.png" alt="Print 2 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%203.png" alt="Print 3 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print.png" alt="Print do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%204.png" alt="Print 4 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%205.png" alt="Print 5 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%206.png" alt="Print 6 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%207.png" alt="Print 7 do projeto" width="600"/>
+</p>
+
+<p align="center">
+  <img src="Documentos/screenshots/Print%208.png" alt="Print 8 do projeto" width="600"/>
+</p>
+
+
 
 ## Instalação 
 **Linguagem**: C++
