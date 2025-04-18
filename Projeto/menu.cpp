@@ -1,6 +1,5 @@
 #include <iostream>
 #include "estacionamento.hpp"
-
 using namespace std;
 
 extern void inicializarGrafo();
@@ -25,13 +24,13 @@ void executarMenu() {
                         vagas[vaga].ocupada = true;
                         cout << "\nEstacione na vaga " << vagas[vaga].id
                              << " (próxima à loja " << nomeLoja << ")\n";
-                    
-                        // Exibe o caminho percorrido até a vaga
+
                         cout << "\nCaminho até a vaga: ";
                         for (int i : resultado.second) {
-                            cout << (i + 1) << " "; // +1 para mostrar as IDs humanas (1 a 18)
+                            cout << (i + 1) << " "; 
                         }
                         cout << endl;
+                        gerarGrafoCaminho(resultado.second, vagas[vaga].id);
                     } else {
                         cout << "\nNão há vagas disponíveis próximas à loja " << nomeLoja << endl;
                     }
@@ -51,11 +50,20 @@ void executarMenu() {
                 break;
             }
             case 3:
+                #ifdef _WIN32
+                    system("start Desenho.png");
+                #elif __APPLE__
+                    system("open Desenho.png");
+                #else
+                    system("feh Desenho.png");
+                #endif
+
+            case 4:
                 cout << "\nSaindo do sistema...\n";
                 break;
             default:
                 cout << "\nOpção inválida. Tente novamente.\n";
         }
 
-    } while (opcao != 3);
+    } while (opcao != 4);
 }
