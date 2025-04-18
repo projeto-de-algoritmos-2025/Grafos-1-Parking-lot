@@ -79,4 +79,3 @@ caminho_para_vaga_X.png
 ## Outros 
 - O projeto usa a biblioteca Graphviz para gerar arquivos `.dot` e convertê-los em imagens PNG.
 - Se tiver problemas para visualizar as imagens, verifique se o `dot` está instalado corretamente.
-```
