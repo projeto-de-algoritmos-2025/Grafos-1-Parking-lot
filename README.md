@@ -1,6 +1,3 @@
-Claro! Aqui está o `README.md` atualizado com a informação sobre o uso do `dot` (Graphviz) para visualizar o grafo:
-
-```markdown
 # Parking lot
 
 **Número da Lista**: 1  
