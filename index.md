@@ -13,6 +13,7 @@ title: "🚗 Projeto de Algoritmos - Parking lot com Grafos"
     <td align="center"><a href="https://github.com/leticiatmartins"><img style="border-radius: 50%;" src="https://github.com/leticiatmartins.png" width="190px;" alt=""/><br /><sub><b>Leticia Torres Soares Martins - 20/2016702 </b></sub></a><br />
   </tr>
 </table>
+</div>
 
 ---
 
