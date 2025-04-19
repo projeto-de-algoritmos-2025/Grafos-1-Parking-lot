@@ -6,16 +6,11 @@ title: "🚗 Projeto de Algoritmos - Parking lot com Grafos"
 
 ## 👩‍💻 Integrantes
 
-<div align = "center">
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Patrocínio Castro   - 22/1008801</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
-    <td align="center"><a href="https://github.com/leticiatmartins"><img style="border-radius: 50%;" src="https://github.com/leticiatmartins.png" width="190px;" alt=""/><br /><sub><b>Leticia Torres Soares Martins - 20/2016702 </b></sub></a><br />
-  </tr>
-</table>
-</div>
+- 202016702 Letícia Torres Soares Martins  
+- 221008801	Bianca Patrocínio Castro
 
 ---
+
 
 ## 🎯 Objetivo
 
