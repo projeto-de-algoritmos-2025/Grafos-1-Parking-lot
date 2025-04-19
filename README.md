@@ -123,11 +123,6 @@ caminho_para_vaga_X.png
 
 (onde `X` é o número da vaga).
 
-
-## Outros 
-- O projeto usa a biblioteca Graphviz para gerar arquivos `.dot` e convertê-los em imagens PNG.
-- Se tiver problemas para visualizar as imagens, verifique se o `dot` está instalado corretamente.
-- 
 ## Apresentação 
 
 <div align="center">
@@ -135,6 +130,12 @@ caminho_para_vaga_X.png
 </div>
 
 <font size="3"><p style="text-align: center">Autor: [Bianca Patrocínio](https://github.com/BiancaPatrocinio7) e [Letícia Torres](https://github.com/leticiatmartins).</p></font>
+
+
+## Outros 
+- O projeto usa a biblioteca Graphviz para gerar arquivos `.dot` e convertê-los em imagens PNG.
+- Se tiver problemas para visualizar as imagens, verifique se o `dot` está instalado corretamente.
+  
 
 
 
