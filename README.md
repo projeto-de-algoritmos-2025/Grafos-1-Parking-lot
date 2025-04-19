@@ -3,11 +3,23 @@
 **Número da Lista**: 1  
 **Conteúdo da Disciplina**: FGA0124 - PROJETO DE ALGORITMOS - T01  
 
+
 ## Alunos
+
+
+<div align = "center">
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/BiancaPatrocinio7"><img style="border-radius: 50%;" src="https://github.com/BiancaPatrocinio7.png" width="190;" alt=""/><br /><sub><b>Bianca Patrocínio</b></sub></a><br /><a href="Link git" title="Rocketseat"></a></td>
+    <td align="center"><a href="https://github.com/leticiatmartins"><img style="border-radius: 50%;" src="https://github.com/leticiatmartins.png" width="190px;" alt=""/><br /><sub><b>Leticia Torres </b></sub></a><br />
+  </tr>
+</table>
+
 | Matrícula   | Aluno                             |
 | ----------- | ---------------------------------- |
 | 22/1008801  | Bianca Patrocínio Castro           |
 | 20/2016702  | Leticia Torres Soares Martins      |
+</div>
 
 ## Sobre 
 O sistema de estacionamento simula a alocação de vagas de estacionamento para clientes em um shopping, com 18 vagas e 6 lojas, utilizando algoritmos de grafos. O objetivo é encontrar a vaga mais próxima de uma loja específica usando a busca em largura (BFS).
@@ -115,3 +127,14 @@ caminho_para_vaga_X.png
 ## Outros 
 - O projeto usa a biblioteca Graphviz para gerar arquivos `.dot` e convertê-los em imagens PNG.
 - Se tiver problemas para visualizar as imagens, verifique se o `dot` está instalado corretamente.
+- 
+## Apresentação 
+
+<div align="center">
+<a href="https://youtu.be/PoJ3FK-J3wM?si=VLjQ5nK-w6U8Dh7-"><img src="https://i.imgur.com/nNBEJk2.png" width="50%"></a>
+</div>
+
+<font size="3"><p style="text-align: center">Autor: [Bianca Patrocínio](https://github.com/BiancaPatrocinio7) e [Letícia Torres](https://github.com/leticiatmartins).</p></font>
+
+
+
